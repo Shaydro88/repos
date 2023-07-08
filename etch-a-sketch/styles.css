@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+  color: aliceblue;
+}
+.board {
+  width: 500px;
+  height: 500px;
+  display: grid;
+}
