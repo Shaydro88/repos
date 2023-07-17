@@ -1,16 +1,22 @@
 body {
   display: flex;
   justify-content: center;
+  text-align: center;
   margin-top: 15px;
 }
 .display {
   border: solid;
   height: 50px;
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
   width: 297.5px;
+  flex-direction: column;
 }
+.top-num {
+  margin-bottom: 15px;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -1,98 +1,112 @@
-const buttonElement = document.querySelectorAll("button");
-const displayElement = document.querySelector(".display");
-const clearElement = document.querySelector(".clear");
-const negativeElement = document.querySelector(".negative");
-const percentElement = document.querySelector(".percent");
-const divideElement = document.querySelector(".divide");
-const multiplyElement = document.querySelector(".multiply");
-const subtractElement = document.querySelector(".subtract");
-const sumElement = document.querySelector(".sum");
-const equalsElement = document.querySelector(".equals");
-const answerElement = document.querySelector(".answer");
-const operatorElement = document.querySelectorAll(".operator");
-let answer;
+let operatorElement = document.querySelectorAll(".operator");
+let numbers = document.querySelectorAll(
+  ".container button:not(.operator,.equals,.negative,.clear,.decimal)"
+);
+let decimalElement = document.querySelector(".decimal");
+let equalsElement = document.querySelector(".equals");
+let clearElement = document.querySelector(".clear");
+let topElement = document.querySelector(".top-num");
+let bottomElement = document.querySelector(".bottom-num");
+let negativeElement = document.querySelector(".negative");
 let operator = null;
-let firstOperand = 0;
-let secondOperand = 0;
-for (let button of buttonElement) {
-  button.addEventListener("click", () => {
-    displayElement.textContent += button.textContent;
+let firstOperand = null;
+let secondOperand = null;
+let result = null;
+
+clearElement.addEventListener("click", () => {
+  clear();
+  bottomElement.textContent = "";
+});
+
+for (let number of numbers) {
+  number.addEventListener("click", () => {
+    let numberText = number.textContent;
+    bottomElement.textContent += numberText;
   });
 }
 
-for (let operator of operatorElement) {
-  operator.addEventListener("click", () => {
-    if ((buttonElement.textContent = "=")) {
+for (let operatorButton of operatorElement) {
+  operatorButton.addEventListener("click", () => {
+    let operatorText = operatorButton.textContent;
+    if (["+", "-", "x", "÷", "%"].includes(operatorText)) {
+      if (firstOperand !== null && operator !== null) {
+        secondOperand = parseFloat(bottomElement.textContent);
+        calculate();
+        firstOperand = result;
+        operator = operatorText;
+      } else {
+        firstOperand = parseFloat(bottomElement.textContent);
+        operator = operatorText;
+      }
+      console.log(operator);
+      bottomElement.textContent = "";
     }
   });
 }
 
-let clear; // "c"
-
-function evaluate() {
-  if ((buttonElement.textContent = "+/-")) {
-    return negative;
+equalsElement.addEventListener("click", () => {
+  if (firstOperand !== null && operator !== null) {
+    secondOperand = parseFloat(bottomElement.textContent);
+    calculate();
+    bottomElement.textContent = result;
+    firstOperand = result;
+    operator = null;
+    secondOperand = null;
   }
-  const negative = (firstOperand) => {
-    return -firstOperand;
-  };
+});
+
+negativeElement.addEventListener("click", () => {
+  if (bottomElement !== "") {
+    let currentValue = parseFloat(bottomElement.textContent);
+    bottomElement.textContent = (-currentValue).toString();
+  }
+});
+
+const percent = (a, b) => {
+  return (a * b) / 100;
+};
+
+const divide = (a, b) => {
+  return a / b;
+};
+
+const multiply = (a, b) => {
+  return a * b;
+};
+
+const subtract = (a, b) => {
+  return a - b;
+};
+
+const sum = function (a, b) {
+  return a + b;
+};
+
+function calculate() {
+  switch (operator) {
+    case "+":
+      result = sum(firstOperand, secondOperand);
+      break;
+    case "-":
+      result = subtract(firstOperand, secondOperand);
+      break;
+    case "x":
+      result = multiply(firstOperand, secondOperand);
+      break;
+    case "÷":
+      result = divide(firstOperand, secondOperand);
+      break;
+    case "%":
+      result = percent(firstOperand, secondOperand);
+      break;
+    default:
+      throw new Error("ERROR");
+  }
 }
 
-const percent = (...args) => {
-  return args.reduce((total, current) => {
-    return (total / current) * 100;
-  });
-};
-
-const divide = (...args) => {
-  return args.reduce((total, current) => {
-    return total / current;
-  });
-};
-
-const multiply = (...args) => {
-  return args.reduce((total, current) => {
-    return total * current;
-  });
-};
-
-const subtract = (...args) => {
-  return args.reduce((total, current) => {
-    return (total -= current);
-  });
-};
-
-const sum = function (...args) {
-  return args.reduce((total, current) => {
-    return total + current;
-  });
-};
-
-const equals = () => {
-  return equalsElement.reduce((firstOperand, secondOperand) => {
-    return (firstOperand += secondOperand);
-  });
-};
-
-operator = function (firstOperand, operator, secondOperand) {
-  switch (operator) {
-    case (buttonElement.textContent = "+"):
-      return sum(firstOperand, secondOperand);
-    case "-":
-      return subtract(firstOperand, secondOperand);
-    case "x":
-      return multiply(firstOperand, secondOperand);
-    case "÷":
-      return divide(firstOperand, secondOperand);
-    case "%":
-      return percent(firstOperand, secondOperand);
-    case "+/-":
-      return -firstOperand;
-    case (buttonElement.textContent = "="):
-      return (firstOperand += secondOperand);
-    case "c":
-      return 0;
-  }
-};
-
-console.log(operator(10, "-", 2));
+function clear() {
+  firstOperand = null;
+  secondOperand = null;
+  operator = null;
+  result = null;
+}
