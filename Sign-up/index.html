@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div class="left">
+        <img
+          class="background"
+          src="images/halie-west-25xggax4bSA-unsplash.jpg"
+          alt="leafs with rain"
+        />
+        <div class="logo">
+          <div class="logoandtext">
+            <img
+              class="odin-logo"
+              src="images/odin-lined.png"
+              alt="odin-logo"
+            />
+            <p class="odin-text">odin</p>
+          </div>
+        </div>
+        <p class="link-text">
+          Photo by
+          <a
+            href="https://unsplash.com/@haliewestphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >Halie West</a
+          >
+          on
+          <a
+            href="https://unsplash.com/photos/25xggax4bSA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >Unsplash</a
+          >
+        </p>
+      </div>
+
+      <div class="right">
+        <div>
+          <p class="intro-text">some text here for aligning my divs.</p>
+        </div>
+        <div class="form">
+          <form class="form">
+            <legend>Let's do this!</legend>
+            <fieldset class="name">
+              <label for="first-name">First Name: </label>
+              <label for="last-name">Last Name: </label>
+            </fieldset>
+            <fieldset>
+              <input type="text" name="first-name" id="first-name" required />
+              <input type="text" name="last-name" id="last-name" required />
+            </fieldset>
+
+            <fieldset class="email">
+              <label for="phone">Phone</label>
+              <label for="email">E-Mail: </label>
+            </fieldset>
+            <fieldset>
+              <input type="email" name="email" id="email" required />
+              <input type="tel" name="phone" id="phone" required />
+            </fieldset>
+
+            <fieldset class="password">
+              <label for="password">Password</label>
+              <label for="confirm-password">Confirm Password</label>
+            </fieldset>
+            <fieldset>
+              <input type="password" name="password" id="password" required />
+              <input
+                type="password"
+                name="confirm-password"
+                id="confirm-password"
+                required
+              />
+            </fieldset>
+          </form>
+        </div>
+        <div class="bottom">
+          <button class="account-button">Create Account</button>
+          <h4>Already have an account? <span>Log in</span></h4>
+        </div>
+      </div>
+    </main>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

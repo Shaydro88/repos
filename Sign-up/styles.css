@@ -1,0 +1,101 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.background {
+  height: 700px;
+  width: 350px;
+}
+
+.logo {
+  color: rgb(243, 243, 243);
+  position: absolute;
+  top: 10rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 350px;
+}
+
+.odin-logo {
+  width: 65px;
+  margin-right: 20px;
+}
+
+.logoandtext {
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+  font-size: xx-large;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.link-text {
+  position: relative;
+  top: -50px;
+  color: aliceblue;
+}
+a {
+  color: white;
+}
+
+button {
+  background-color: rgb(7, 142, 7);
+  color: white;
+  width: 170px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+span {
+  position: relative;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 650px;
+  height: 46.3rem;
+}
+
+.intro-text {
+  text-align: center;
+  margin-top: 200px;
+}
+
+fieldset {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bottom {
+  position: relative;
+  left: 20px;
+  top: -45px;
+}
+
+input :invalid {
+  border: red;
+}
+
+input:valid {
+  border: black;
+}
