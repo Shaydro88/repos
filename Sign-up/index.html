@@ -39,48 +39,62 @@
       </div>
 
       <div class="right">
-        <div>
+        <div class="top">
           <p class="intro-text">some text here for aligning my divs.</p>
         </div>
-        <div class="form">
-          <form class="form">
-            <legend>Let's do this!</legend>
-            <fieldset class="name">
-              <label for="first-name">First Name: </label>
-              <label for="last-name">Last Name: </label>
-            </fieldset>
-            <fieldset>
-              <input type="text" name="first-name" id="first-name" required />
-              <input type="text" name="last-name" id="last-name" required />
-            </fieldset>
 
-            <fieldset class="email">
-              <label for="phone">Phone</label>
-              <label for="email">E-Mail: </label>
-            </fieldset>
-            <fieldset>
+        <!-- place firstname,email,and password in a div together 
+        and do the same for remaining inputs and labels
+ -->
+
+        <form class="form">
+          <legend>Let's do this!</legend>
+          <div class="form-div">
+            <div class="left-form-data">
+              <label for="first-name">First Name </label>
+
+              <input type="text" name="first-name" id="first-name" />
+
+              <label for="email">E-Mail </label>
+
               <input type="email" name="email" id="email" required />
-              <input type="tel" name="phone" id="phone" required />
-            </fieldset>
 
-            <fieldset class="password">
               <label for="password">Password</label>
-              <label for="confirm-password">Confirm Password</label>
-            </fieldset>
-            <fieldset>
-              <input type="password" name="password" id="password" required />
+
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="error"
+                required
+              />
+            </div>
+
+            <div class="right-form-data">
+              <label for="last-name">Last Name </label>
+
+              <input type="text" name="last-name" id="last-name" />
+
+              <label for="phone">Phone </label>
+
+              <input type="tel" name="phone" id="phone" />
+
+              <label for="confirm-password" required>Confirm Password</label>
+
               <input
                 type="password"
                 name="confirm-password"
                 id="confirm-password"
+                class="error"
                 required
               />
-            </fieldset>
-          </form>
-        </div>
+            </div>
+          </div>
+        </form>
+
         <div class="bottom">
-          <button class="account-button">Create Account</button>
-          <h4>Already have an account? <span>Log in</span></h4>
+          <button type="submit" class="account-button">Create Account</button>
+          <h4>Already have an account? <a href="dummytext.txt" class="log-in">Log in</a</h4>
         </div>
       </div>
     </main>
