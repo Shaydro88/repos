@@ -1,0 +1,13 @@
+.forms-container > form {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding-left: 5px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+
